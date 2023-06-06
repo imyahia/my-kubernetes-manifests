@@ -1,0 +1,13 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: my-app
+spec:
+  project: default
+  source:
+    repoURL: https://github.com/imyahia//my-kubernetes-manifests.git
+    path: my-app
+    targetRevision: HEAD
+  destination:
+    server: 'https://kubernetes.default.svc' # Assuming you're using in-cluster configuration
+    namespace: default

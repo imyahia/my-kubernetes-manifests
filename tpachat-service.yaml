@@ -1,0 +1,15 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: tpachat
+  labels:
+    app: tpachat
+spec:
+  selector:
+    app: tpachat
+  
+  ports:
+    - protocol: TCP
+      port: 8089
+      targetPort: 8089
+     

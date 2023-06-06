@@ -1,0 +1,34 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: tpachat
+  labels:
+    app: tpachat
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: tpachat
+  template:
+    metadata:
+      labels:
+        app: tpachat
+    spec:
+      containers:
+        - image: maammar/tpachato:latest
+          name: tpachat        
+          ports:
+          - containerPort: 8089 
+          env:
+            - name: MYSQL_USER_NAME
+              value: root
+            - name: SPRING_DATASOURCE_URL
+              value: jdbc:mysql://mysql:3306/tpachato?useSSL=false                          
+            - name: MYSQL_DATABASE
+              value: tpachato
+            - name: MYSQL_ROOT_PASSWORD
+              value: root
+      imagePullSecrets:
+      - name: regcred
+
+     
