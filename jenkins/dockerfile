@@ -16,6 +16,16 @@ RUN wget -O /tmp/apache-maven-${MAVEN_VERSION}-bin.tar.gz https://apache.osuosl.
     ln -s /opt/apache-maven-${MAVEN_VERSION} /opt/maven && \
     rm /tmp/apache-maven-${MAVEN_VERSION}-bin.tar.gz
 
+
+    # Install Docker
+RUN apt-get install -y apt-transport-https ca-certificates curl gnupg2 software-properties-common && \
+    curl -fsSL https://download.docker.com/linux/debian/gpg | apt-key add - && \
+    add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/debian $(lsb_release -cs) stable" && \
+    apt-get update && \
+    apt-get install -y docker-ce docker-ce-cli containerd.io
+    
+RUN usermod -aG docker jenkins
+
 # Set environment variables
 ENV JAVA_HOME=/usr/lib/jvm/java-11-openjdk-amd64
 ENV MAVEN_HOME=/opt/maven
