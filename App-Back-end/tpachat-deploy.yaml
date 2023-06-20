@@ -15,7 +15,7 @@ spec:
         app: tpachat
     spec:
       containers:
-        - image: maammar/tpachato:96
+        - image: maammar/tpachato:97
           name: tpachat        
           ports:
           - containerPort: 8089 
