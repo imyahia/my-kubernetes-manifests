@@ -11,7 +11,7 @@ spec:
             pathType: Prefix
             backend:
               service:
-                name: tpachat
+                name: leadmangment
                 port:
                   number: 8089
                  

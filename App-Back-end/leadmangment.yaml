@@ -3,19 +3,23 @@ kind: Deployment
 metadata:
   name: tpachat
   labels:
-    app: tpachat
+    app: leadmangment
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: tpachat
+      app: leadmangment
   template:
     metadata:
       labels:
-        app: tpachat
+        app: leadmangment
     spec:
       containers:
+<<<<<<< HEAD:App-Back-end/tpachat-deploy.yaml
         - image: maammar/tpachato:25
+=======
+        - image: maammar/leadmangment:latest
+>>>>>>> bc9e234 (manifest uptated):App-Back-end/leadmangment.yaml
           name: tpachat        
           ports:
           - containerPort: 8089 
@@ -23,9 +27,9 @@ spec:
             - name: MYSQL_USER_NAME
               value: root
             - name: SPRING_DATASOURCE_URL
-              value: jdbc:mysql://mysql:3306/tpachato?useSSL=false                          
+              value: jdbc:mysql://mysql:3306/leadmangment?useSSL=false                          
             - name: MYSQL_DATABASE
-              value: tpachato
+              value: leadmangment
             - name: MYSQL_ROOT_PASSWORD
               value: root
       imagePullSecrets:
