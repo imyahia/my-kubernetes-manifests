@@ -16,7 +16,7 @@ spec:
     spec:
       containers:
 <<<<<<< HEAD:App-Back-end/tpachat-deploy.yaml
-        - image: maammar/tpachato:102
+        - image: maammar/tpachato:104
 =======
         - image: maammar/leadmangment:latest
 >>>>>>> bc9e234 (manifest uptated):App-Back-end/leadmangment.yaml
